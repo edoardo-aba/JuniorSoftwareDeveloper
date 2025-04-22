@@ -27,12 +27,6 @@ Valorizza i seguenti campi (fieldName):
 
 Al seguente link trovi lo swagger: https://services.paloalto.swiss:10443/api2/swagger/index.html
 
-Di seguito, le informazioni necessarie per l'autenticazione e la valorizzazione dei metadati:
-
-- User ID: 23
-- Password WS: 1234
-- Cabinet ID: 804dfcb0-cf00-49c7-bb23-ec68bc3a6097
-
 ## Istruzioni
 
 - Puoi modificare la struttura del progetto come preferisci
