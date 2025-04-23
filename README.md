@@ -51,9 +51,9 @@ Per organizzare meglio il codice, l’ho suddiviso in questi moduli:
 
 - Binding del progetto di test: configurare il progetto di test per farlo puntare correttamente al progetto principale non è stato immediato; ho dovuto aggiungere i riferimenti e controllare il namespace.
 
-- Integrazione con DocuWare: per la chiamata a /query-documents ricevevo 400 Bad Request finché, analizzando lo Swagger, non ho scoperto che anche per le query GET era necessario inviare un payload con le credenziali. Inoltre, dato che lo Swagger restituiva 401 Unauthorized, ho creato un endpoint interno (/tasks/records) che prima aggiunge la task via POST e poi verifica l’effettiva presenza tramite GET.
+- Integrazione con DocuWare: per la chiamata a /query-documents ricevevo 400 Bad Request finché, analizzando lo Swagger, non ho scoperto che anche per le query GET era necessario inviare un payload con le credenziali. Inoltre, dato che lo Swagger restituiva 401 Unauthorized, ho creato un endpoint interno (/tasks/records) che dopo aver aggiunto la task via POST se chiamato restituisce la lista dei documenti per verificare l’effettiva presenza tramite GET.
 
-- Formato del payload DocuWare: inizialmente sbagliavo la struttura dei campi (indexFields), ma dopo vari test e confronti con la documentazione, ho individuato il formato corretto
+- Formato del payload DocuWare: inizialmente sbagliavo la struttura dei campi (indexFields), ma dopo vari test e confronti con la documentazione, ho individuato il formato corretto.
    
 2. Hai fatto assunzioni? Se sì, quali?
 
@@ -76,7 +76,7 @@ Se fosse un progetto reale migliorerei:
 
 - Sostituire il file JSON con un database per scalabilità e query complesse. 
 
-- Estrarre la logica di accesso ai dati locali e la comunicazione con DocuWare in service class separate (es. ITaskRepository, IDocuwareClient) per favorire l’iniezione delle dipendenze e i test.
+- Estrarre la logica di accesso ai dati locali e la comunicazione con DocuWare in service class separate.
 
 - Ampliare i test unitari per coprire ogni casistica.
 
